@@ -7,8 +7,9 @@ import java.io.FileInputStream;
 import java.util.*;
 
 public class ExcelReader {
-
-	public static List<String> getColumnValues(String filePath, String sheetName, String headerName) {
+	public static String filePath = System.getProperty("user.dir") + File.separator
+			+ "src/test/resources/TestData/SampleTestData.xlsx";
+	public static List<String> getColumnValues(String sheetName, String headerName) {
         List<String> values = new ArrayList<>();
 
         try (FileInputStream fis = new FileInputStream(filePath);

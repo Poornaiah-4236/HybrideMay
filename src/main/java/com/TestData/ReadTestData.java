@@ -29,6 +29,16 @@ public class ReadTestData {
 			}
 			int columnIndex = -1;
 			// Find column index
+			for(int i=1;i<dataRows;i++) {
+				for (int j = 0; j < headerRow.getLastCellNum(); j++) {
+					Cell headerCell = headerRow.getCell(j);
+					if (headerCell != null && headerCell.getCellType() == CellType.STRING
+							&& headerCell.getStringCellValue().equalsIgnoreCase(key)) {
+						columnIndex = i;
+						break;
+					}
+				}
+			}
 			for (int i = 0; i < headerRow.getLastCellNum(); i++) {
 				Cell headerCell = headerRow.getCell(i);
 				if (headerCell != null && headerCell.getCellType() == CellType.STRING

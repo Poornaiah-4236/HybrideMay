@@ -20,14 +20,12 @@ public class ConfigProperties {
         }
     }
 
-    public static String getProperty(String key) {
-        // 1. Check System Properties first (Jenkins/Maven -D parameters)
+    public static String getProperty(String key) {       
         String systemValue = System.getProperty(key);
         if (systemValue != null && !systemValue.isEmpty()) {
             return systemValue;
         }
-
-        // 2. Fallback to the Config.properties file
+      
         return prop.getProperty(key);
     }
 }
